@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tip Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Tip Calculator</h1>
+
+        <!-- User Inputs -->
+        <input type="number" id="mealCost" placeholder="Enter meal cost">
+        <input type="number" id="tipPercent" placeholder="Enter tip percentage">
+
+        <button onclick="calculateTip()">Calculate</button>
+
+        <!-- Output -->
+        <p id="mealResult"></p>
+        <p id="tipPercentResult"></p>
+        <p id="tipAmount"></p>
+        <p id="totalAmount"></p>
+    </div>
+
+    <script>
+        function calculateTip() {
+            // Get user input
+            let mealCost = parseFloat(document.getElementById("mealCost").value);
+            let tipPercent = parseFloat(document.getElementById("tipPercent").value);
+
+            // Calculate tip and total
+            let tip = mealCost * (tipPercent / 100);
+            let total = mealCost + tip;
+
+            // Display results
+            document.getElementById("mealResult").textContent = "Meal Cost: $" + mealCost.toFixed(2);
+            document.getElementById("tipPercentResult").textContent = "Tip Percent: " + tipPercent + "%";
+            document.getElementById("tipAmount").textContent = "Tip Amount: $" + tip.toFixed(2);
+            document.getElementById("totalAmount").textContent = "Total Cost: $" + total.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
